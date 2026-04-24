@@ -1,8 +1,8 @@
-package com.exemplo.usuariosimples.Controller;
+package org.example.projetospringdata.controller;
 
-import com.exemplo.usuariosimples.domain.Professor;
-import com.exemplo.usuariosimples.service.ProfessorService;
 
+import org.example.projetospringdata.domain.Professor;
+import org.example.projetospringdata.service.ProfessorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

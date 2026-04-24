@@ -1,6 +1,6 @@
 package org.example.projetospringdata.controller;
 
-import org.example.projetospringdata.dominio.Curso;
+import org.example.projetospringdata.domain.Curso;
 import org.example.projetospringdata.service.CursoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

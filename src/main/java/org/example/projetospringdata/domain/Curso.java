@@ -1,4 +1,4 @@
-package org.example.projetospringdata.dominio;
+package org.example.projetospringdata.domain;
 
 import jakarta.persistence.*;
 

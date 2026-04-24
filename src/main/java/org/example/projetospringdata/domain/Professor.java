@@ -1,4 +1,4 @@
-package com.exemplo.usuariosimples.domain;
+package org.example.projetospringdata.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

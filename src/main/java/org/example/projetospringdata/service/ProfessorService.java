@@ -1,11 +1,11 @@
-package com.exemplo.usuariosimples.service;
+package org.example.projetospringdata.service;
+
 
 import java.util.List;
 
+import org.example.projetospringdata.domain.Professor;
+import org.example.projetospringdata.repository.ProfessorRepository;
 import org.springframework.stereotype.Service;
-
-import com.exemplo.usuariosimples.domain.Professor;
-import com.exemplo.usuariosimples.repository.ProfessorRepository;
 
 @Service
 public class ProfessorService {

@@ -1,6 +1,7 @@
 package org.example.projetospringdata.service;
 
-import org.example.projetospringdata.dominio.Curso;
+
+import org.example.projetospringdata.domain.Curso;
 import org.example.projetospringdata.repository.CursoRepository;
 import org.springframework.stereotype.Service;
 
