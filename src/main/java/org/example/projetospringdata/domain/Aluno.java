@@ -21,11 +21,12 @@ public class Aluno {
     @Column(nullable = false, unique = true, length = 120)
     private String email;
 
+    public Aluno() {}
+
     public Aluno(String nome, String email) {
         this.nome = nome;
         this.email = email;
     }
-
 
     public Long getId() {
         return id;
@@ -50,5 +51,4 @@ public class Aluno {
     public void setEmail(String email) {
         this.email = email;
     }
-
 }
