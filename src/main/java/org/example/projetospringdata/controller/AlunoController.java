@@ -27,32 +27,32 @@ public class AlunoController {
         this.service = service;
     }
 
-    // POST /alunos — Criar aluno → HTTP 201
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Aluno criar(@RequestBody Aluno aluno) {
         return service.criar(aluno);
     }
 
-    // GET /alunos — Listar todos → HTTP 200
+
     @GetMapping
     public List<Aluno> listar() {
         return service.listar();
     }
 
-    // GET /alunos/{id} — Buscar por ID → HTTP 200
+
     @GetMapping("/{id}")
     public Aluno buscar(@PathVariable Long id) {
         return service.buscar(id);
     }
 
-    // PUT /alunos/{id} — Atualizar aluno → HTTP 200
+
     @PutMapping("/{id}")
     public Aluno atualizar(@PathVariable Long id, @RequestBody Aluno aluno) {
         return service.atualizar(id, aluno);
     }
 
-    // DELETE /alunos/{id} — Remover aluno → HTTP 204
+
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletar(@PathVariable Long id) {
