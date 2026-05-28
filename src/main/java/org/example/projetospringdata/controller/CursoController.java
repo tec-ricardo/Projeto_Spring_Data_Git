@@ -1,6 +1,6 @@
 package org.example.projetospringdata.controller;
 
-import org.example.projetospringdata.domain.Curso;
+import org.example.projetospringdata.dominio.Curso;
 import org.example.projetospringdata.service.CursoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -11,7 +11,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/cursos")
-@Tag(name = "Curso", description = "Endpoints didaticos para a entidade Curso")
+@Tag(name = "Curso", description = "Endpoints de Cadastro de Cursos")
+@CrossOrigin(origins = "*")
 public class CursoController {
 
     private final CursoService service;
@@ -50,5 +51,13 @@ public class CursoController {
     @Operation(summary = "Remove um curso pelo id")
     public void deletar(@PathVariable Long id) {
         service.deletar(id);
+    }
+
+    // DELETE /cursos/nome/{nome}
+    @DeleteMapping("/nome/{nome}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @Operation(summary = "Remove um curso pelo nome")
+    public void deletarPorNome(@PathVariable String nome) {
+        service.deletarPorNome(nome);
     }
 }

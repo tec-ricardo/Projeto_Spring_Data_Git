@@ -1,11 +1,9 @@
 package org.example.projetospringdata.service;
 
-
 import java.util.List;
-
-import org.example.projetospringdata.domain.Professor;
-import org.example.projetospringdata.repository.ProfessorRepository;
 import org.springframework.stereotype.Service;
+import org.example.projetospringdata.dominio.Professor;
+import org.example.projetospringdata.repository.ProfessorRepository;
 
 @Service
 public class ProfessorService {
@@ -25,11 +23,14 @@ public class ProfessorService {
     }
 
     public Professor buscar(Long id) {
-        return repository.findById(id)
-                .orElseThrow();
+        return repository.findById(id).orElseThrow();
     }
 
     public void deletar(Long id) {
         repository.deleteById(id);
+    }
+
+    public void deletarPorNome(String nome) {
+        repository.deleteByNome(nome);
     }
 }

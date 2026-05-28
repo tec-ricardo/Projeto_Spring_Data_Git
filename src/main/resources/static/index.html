@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>EduTech — Plataforma Completa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+    <div class="nav-brand"> EduTech</div>
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#alunos">Alunos</a>
+        <a href="#cursos">Cursos</a>
+        <a href="#professores">Professores</a>
+        <a href="#matriculas">Matrículas</a>
+    </div>
+</nav>
+
+<!-- HOME -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>Aprenda Sem Limites</h1>
+        <p>Plataforma de cursos com gamificação, evolução e recompensas</p>
+
+        <div class="hero-btns">
+            <a href="#alunos" class="btn-hero">Começar Agora</a>
+            <a href="#cursos" class="btn-hero outline">Ver Cursos</a>
+        </div>
+    </div>
+</section>
+
+<!-- SOBRE -->
+<section class="section" id="sobre">
+    <div class="container flex">
+
+        <div class="sobre-text">
+            <h2>Educação Inteligente e Acessível</h2>
+
+            <p>
+                A EduTech oferece cursos online no modelo de assinatura,
+                permitindo que alunos evoluam continuamente em suas carreiras.
+            </p>
+
+            <p>
+                A cada curso concluído com média acima de 7,
+                novos conteúdos são desbloqueados,
+                incentivando o progresso constante.
+            </p>
+
+            <a href="#alunos" class="btn-green">Começar Agora</a>
+        </div>
+
+        <div class="sobre-img">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644" alt="Estudantes">
+        </div>
+
+    </div>
+</section>
+
+<!-- BENEFÍCIOS -->
+<section class="section bg-gray">
+
+    <div class="container">
+
+        <h2 class="text-center">Benefícios da Plataforma</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>📚 Cursos Ilimitados</h3>
+                <p>Acesso contínuo via assinatura mensal.</p>
+            </div>
+
+            <div class="card">
+                <h3>🎯 Progressão Inteligente</h3>
+                <p>Complete cursos e desbloqueie novos conteúdos.</p>
+            </div>
+
+            <div class="card">
+                <h3>💬 Comunidade</h3>
+                <p>Ajude outros alunos e ganhe recompensas.</p>
+            </div>
+
+            <div class="card">
+                <h3>🏆 Gamificação</h3>
+                <p>Ganhe moedas e evolua para Premium.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="section">
+
+    <div class="container">
+
+        <h2 class="text-center">Como Funciona</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>1️⃣ Assine</h3>
+                <p>Tenha acesso aos cursos básicos.</p>
+            </div>
+
+            <div class="card">
+                <h3>2️⃣ Estude</h3>
+                <p>Complete cursos com média ≥ 7.</p>
+            </div>
+
+            <div class="card">
+                <h3>3️⃣ Evolua</h3>
+                <p>Desbloqueie novos cursos automaticamente.</p>
+            </div>
+
+            <div class="card">
+                <h3>4️⃣ Premium</h3>
+                <p>Após 12 cursos, ganhe moedas e projetos reais.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ALUNOS -->
+<section class="section" id="alunos">
+
+    <div class="page-hero">
+        <h1>Alunos</h1>
+    </div>
+
+    <div class="page-container">
+
+        <div class="section">
+
+            <h2>Cadastrar Aluno</h2>
+
+            <div class="form-grid">
+                <input type="text" id="nomeAluno" placeholder="Nome do aluno">
+                <input type="email" id="emailAluno" placeholder="Email do aluno">
+            </div>
+
+            <div class="btn-row">
+                <button onclick="salvarAluno()"> Salvar Aluno</button>
+                <button class="btn-outline" onclick="listarAlunos()"> Listar Alunos</button>
+            </div>
+
+            <ul id="listaAlunos" class="lista"></ul>
+
+            <div class="delete-zone">
+
+                <p class="delete-label">🗑 Deletar Aluno</p>
+
+                <div class="form-grid">
+                    <input type="text" id="nomeAlunoDelete" placeholder="Nome do aluno para deletar">
+                    <button class="btn-danger" onclick="deletarAlunoPorNome()">Deletar</button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CURSOS -->
+<section class="section" id="cursos">
+
+    <div class="page-hero">
+        <h1> Cursos</h1>
+    </div>
+
+    <div class="page-container">
+
+        <div class="section">
+
+            <h2>Cadastrar Curso</h2>
+
+            <div class="form-grid">
+                <input type="text" id="nomeCurso" placeholder="Nome do curso">
+                <input type="text" id="descricaoCurso" placeholder="Descrição do curso">
+            </div>
+
+            <div class="btn-row">
+                <button onclick="salvarCurso()"> Salvar Curso</button>
+                <button class="btn-outline" onclick="listarCursos()"> Listar Cursos</button>
+            </div>
+
+            <div id="listaCursos" class="cards-grid"></div>
+
+            <div class="delete-zone">
+
+                <p class="delete-label">🗑 Deletar Curso</p>
+
+                <div class="form-grid">
+                    <input type="text" id="nomeCursoDelete" placeholder="Nome do curso para deletar">
+                    <button class="btn-danger" onclick="deletarCursoPorNome()">Deletar</button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROFESSORES -->
+<section class="section" id="professores">
+
+    <div class="page-hero">
+        <h1>Professores</h1>
+    </div>
+
+    <div class="page-container">
+
+        <div class="section">
+
+            <h2>Cadastrar Professor</h2>
+
+            <div class="form-grid">
+                <input type="text" id="nomeProfessor" placeholder="Nome do professor">
+                <input type="email" id="emailProfessor" placeholder="Email do professor">
+                <input type="text" id="disciplinaProfessor" placeholder="Disciplina">
+            </div>
+
+            <div class="btn-row">
+                <button onclick="salvarProfessor()">Salvar Professor</button>
+                <button class="btn-outline" onclick="listarProfessores()"> Listar Professores</button>
+            </div>
+
+            <div id="listaProfessores" class="cards-grid"></div>
+
+            <div class="delete-zone">
+
+                <p class="delete-label">🗑 Deletar Professor</p>
+
+                <div class="form-grid">
+                    <input type="text" id="nomeProfessorDelete" placeholder="Nome do professor para deletar">
+                    <button class="btn-danger" onclick="deletarProfessorPorNome()">Deletar</button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- MATRÍCULAS -->
+<section class="section" id="matriculas">
+
+    <div class="page-hero">
+        <h1> Matrículas</h1>
+    </div>
+
+    <div class="page-container">
+
+        <div class="section">
+
+            <h2>Matricular Aluno</h2>
+
+            <div class="form-grid">
+                <input type="number" id="idAlunoMatricula" placeholder="ID do aluno">
+                <input type="number" id="idCursoMatricula" placeholder="ID do curso">
+            </div>
+
+            <div class="btn-row">
+                <button onclick="matricularAluno()"> Matricular Aluno</button>
+            </div>
+
+        </div>
+
+        <div class="section">
+
+            <h2> Concluir Curso</h2>
+
+            <div class="form-grid">
+                <input type="number" id="idMatriculaConclusao" placeholder="ID do aluno">
+                <input type="number" id="notaConclusao" placeholder="Nota final (0-10)">
+            </div>
+
+            <div class="btn-row">
+                <button onclick="concluirCurso()">🎓 Concluir Curso</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTATO -->
+<section class="section bg-gray" id="contato">
+
+    <div class="container text-center">
+        <h2>Entre em Contato</h2>
+        <p>Email: suporte@edutech.com</p>
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+    © 2026 EduTech — Todos os direitos reservados
+</footer>
+
+<!-- SCRIPT -->
+<script src="script.js"></script>
+
+<script>
+    window.addEventListener("scroll", () => {
+        document.getElementById("navbar")
+            .classList.toggle("scrolled", window.scrollY > 50);
+    });
+</script>
+
+</body>
+</html>
+```

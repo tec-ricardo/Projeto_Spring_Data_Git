@@ -1,7 +1,6 @@
 package org.example.projetospringdata.service;
 
-
-import org.example.projetospringdata.domain.Curso;
+import org.example.projetospringdata.dominio.Curso;
 import org.example.projetospringdata.repository.CursoRepository;
 import org.springframework.stereotype.Service;
 
@@ -34,16 +33,17 @@ public class CursoService {
 
         existente.setNome(curso.getNome());
         existente.setDescricao(curso.getDescricao());
-        existente.setNivel(curso.getNivel());
-        existente.setCargaHoraria(curso.getCargaHoraria());
-        existente.setMediaMinima(curso.getMediaMinima());
-        existente.setPossuiProjeto(curso.isPossuiProjeto());
-        existente.setMoedasGeradas(curso.getMoedasGeradas());
 
         return repository.save(existente);
     }
 
+    // DELETAR POR ID
     public void deletar(Long id) {
         repository.deleteById(id);
+    }
+
+    // DELETAR POR NOME
+    public void deletarPorNome(String nome) {
+        repository.deleteByNome(nome);
     }
 }

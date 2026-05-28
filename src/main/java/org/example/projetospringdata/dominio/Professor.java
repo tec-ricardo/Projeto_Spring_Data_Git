@@ -1,4 +1,4 @@
-package org.example.projetospringdata.domain;
+package org.example.projetospringdata.dominio;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,12 +8,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Aluno")
-public class Aluno {
+@Table(name = "professores")
+public class Professor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     @Column(nullable = false, length = 100)
     private String nome;
@@ -21,18 +21,23 @@ public class Aluno {
     @Column(nullable = false, unique = true, length = 120)
     private String email;
 
-    public Aluno() {}
+    @Column(nullable = false, length = 100)
+    private String disciplina;
 
-    public Aluno(String nome, String email) {
-        this.nome = nome;
-        this.email = email;
+    public Professor() {
     }
 
-    public Long getId() {
+    public Professor(String nome, String email, String disciplina) {
+        this.nome = nome;
+        this.email = email;
+        this.disciplina = disciplina;
+    }
+
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -50,5 +55,13 @@ public class Aluno {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getDisciplina() {
+        return disciplina;
+    }
+
+    public void setDisciplina(String disciplina) {
+        this.disciplina = disciplina;
     }
 }

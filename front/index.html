@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>API Cursos</title>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            padding: 30px;
+        }
+
+        .box {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        ul {
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+            background: #eeeeee;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="app" class="box">
+
+    <h1>API de Cursos</h1>
+
+    <input
+            v-model="curso.nome"
+            placeholder="Nome do curso"
+    >
+
+    <textarea
+            v-model="curso.descricao"
+            placeholder="Descrição do curso"
+    ></textarea>
+
+    <button @click="criarCurso">
+        Criar Curso
+    </button>
+
+    <button @click="listarCursos">
+        Atualizar Lista
+    </button>
+
+    <h2>Lista de Cursos</h2>
+
+    <ul>
+        <li v-for="c in cursos" :key="c.id">
+            <strong>{{ c.nome }}</strong>
+            <br>
+            {{ c.descricao }}
+        </li>
+    </ul>
+
+</div>
+
+<script>
+
+    const { createApp } = Vue;
+
+    createApp({
+
+        data() {
+            return {
+
+                apiBase: 'http://localhost:8081',
+
+                cursos: [],
+
+                curso: {
+                    nome: '',
+                    descricao: ''
+                }
+            }
+        },
+
+        methods: {
+
+            async listarCursos() {
+
+                const response =
+                    await fetch(this.apiBase + '/cursos');
+
+                this.cursos =
+                    await response.json();
+            },
+
+            async criarCurso() {
+
+                await fetch(this.apiBase + '/cursos', {
+
+                    method: 'POST',
+
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+
+                    body: JSON.stringify(this.curso)
+                });
+
+                this.curso = {
+                    nome: '',
+                    descricao: ''
+                };
+
+                await this.listarCursos();
+            }
+        },
+
+        mounted() {
+            this.listarCursos();
+        }
+
+    }).mount('#app');
+
+</script>
+
+</body>
+</html>
